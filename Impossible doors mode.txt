@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/okoke157/Vienal/refs/heads/main/Impossible%20doors%20mode")
