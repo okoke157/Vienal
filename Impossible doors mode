@@ -1,27 +1,13 @@
 local TeleportService = game:GetService("TeleportService")
 local Players = game:GetService("Players")
 
-local TARGET_PLACE_ID = 129953269492764
-local debounces = {}
+local LocalPlayer = Players.LocalPlayer
+local targetPlaceId = 129953269492764
 
-local part = script.Parent
-
-part.Touched:Connect(function(hit)
-	local character = hit.Parent
-	local player = Players:GetPlayerFromCharacter(character)
-	
-	if player and not debounces[player] then
-		debounces[player] = true
-		
-		local success, err = pcall(function()
-			TeleportService:Teleport(TARGET_PLACE_ID, player)
-		end)
-		
-		if not success then
-			warn("Err_Tp:", err)
-			
-			task.wait(2)
-			debounces[player] = nil
-		end
-	end
+local success, errorMessage = pcall(function()
+    TeleportService:Teleport(targetPlaceId, LocalPlayer)
 end)
+
+if not success then
+    warn("Error when tele to game: " .. tostring(errorMessage))
+end
