@@ -1,0 +1,8 @@
+local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+
+local TARGET_PLACE_ID = 129953269492764
+
+pcall(function()
+	TeleportService:Teleport(TARGET_PLACE_ID, Players.LocalPlayer)
+end)
